@@ -23,7 +23,7 @@ Adicione aqui uma captura de tela do Navbar com seu nome personalizado:
       <Navbar dark color="primary">
       <div className="container">
       <NavbarBrand href="/">Ristorante Con Fusion</NavbarBrand>
-      <div>Aluno: Fulano de Tal</div>
+      <div>Aluno: kauã igor </div>
    </div>
  </Navbar>
 ```
