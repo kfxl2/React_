@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle } from 'reactstrap';
-
+import DishDetail from './DishdetailComponent';
 const Menu = (props) => {
   const [selectedDish, setSelectedDish] = useState(null);
 
