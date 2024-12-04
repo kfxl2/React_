@@ -1,18 +1,19 @@
 import './App.css';
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import { Navbar, NavbarBrand } from 'reactstrap';
 import Menu from './components/MenuComponent';
 import { DISHES } from './shared/dishes';
 
-function App() {
+
+function App() {  
     const [dishes] = useState(DISHES);
 
   return (
     <div>
-        <Navbar dark color="primary" expand="md">
+        <Navbar dark color="primary" expand="md-3">
           <div className="container">
               <NavbarBrand href="/">Ristorante Con Fusion</NavbarBrand>
-              <div>Aluno: Kauã Igor</div>
+              <div>Aluno: Kauã Igor </div>
           </div>
       </Navbar>
       <Menu dishes={dishes} />

@@ -2,18 +2,18 @@ import React from 'react';
 import { Card, CardBody, CardTitle, CardText, CardImg } from 'reactstrap';
 
 /**
- * Exibe os detalhes do prato e os comentários.
+ * exibe as informações do pratos e o comentarios sobre o prato 
  * @param {Object} dish - O prato selecionado.
- * @returns JSX para renderizar os detalhes do prato e os comentários.
+ * @returns JSX para renderizar os detalhes do prato.
  */
 const DishDetail = ({ dish }) => {
-  // Função para renderizar o prato
+  // Função que mostra os detalhes do prato
   const renderDish = (dish) => {
-    if (!dish) return <div></div>;
+    if (!dish) return <div>No dish selected</div>;
 
     return (
       <Card>
-        <CardImg top src={`/assets/${dish.image}`} alt={dish.name} />
+        <CardImg top src={dish.image} alt={dish.name} />
         <CardBody>
           <CardTitle>{dish.name}</CardTitle>
           <CardText>{dish.description}</CardText>
@@ -24,16 +24,16 @@ const DishDetail = ({ dish }) => {
 
   // Função para renderizar os comentários
   const renderComments = (comments) => {
-    if (!comments) return <div></div>;
+    if (!comments || comments.length === 0) return <div>No comments available</div>;
 
     return (
-      <div>
+      <div className="mt-4">
         <h4>Comentários</h4>
         <ul className="list-unstyled">
-          {comments.map((comment, index) => (
-            <li key={index}>
-              <p>{comment.comment}</p>
-              <p>
+          {comments.map((comment) => (
+            <li key={comment.id} className="mb-3">
+              <p>"{comment.comment}"</p>
+              <p className="text-muted">
                 -- {comment.author}, {new Date(comment.date).toLocaleDateString()}
               </p>
             </li>
@@ -45,11 +45,11 @@ const DishDetail = ({ dish }) => {
 
   return (
     <div className="row">
-      <div className="col-12 col-md-5 m-1">
+      <div className="col-12 col-md-5 m-3">
         {renderDish(dish)}
       </div>
-      <div className="col-12 col-md-5 m-1">
-        {renderComments(dish ? dish.comments : null)}
+      <div className="col-12 col-md-5 m-3">
+        {dish ? renderComments(dish.comments) : <div></div>}
       </div>
     </div>
   );
